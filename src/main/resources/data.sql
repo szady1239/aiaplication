@@ -1,0 +1,1 @@
+INSERT INTO part VALUES(1,'Wycieraczka typu 1'),(2,'Dywanik typu 1'),(3, 'Pompa paliwowa H2C')
