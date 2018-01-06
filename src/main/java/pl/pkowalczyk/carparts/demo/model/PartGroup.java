@@ -4,6 +4,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Setter
 @Getter
@@ -20,4 +21,6 @@ public class PartGroup {
     @ManyToOne
     @JoinColumn(name = "car_id")
     private Car car;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "partGroup")
+    private List<Part> partList;
 }

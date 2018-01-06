@@ -26,7 +26,7 @@ public class OrderControler {
 
     @ResponseBody
     @GetMapping("/saveOrder")
-    public String saveOrder(@RequestParam(value = "customer") Long customerId) {
+    public String orderSave(@RequestParam(value = "customer") Long customerId) {
         orderService.orderSave(customerId);
 
         return "Ok";

@@ -4,6 +4,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Setter
 @Getter
@@ -18,4 +19,6 @@ public class Order {
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "order")
+    private List<OrderDetail> orderDetailList;
 }

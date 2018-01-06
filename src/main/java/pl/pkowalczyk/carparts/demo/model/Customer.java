@@ -4,6 +4,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Setter
 @Getter
@@ -19,4 +20,6 @@ public class Customer {
     private String firstName;
     @Column(name = "last_name", nullable = false)
     private String lastName;
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "customer")
+    private List<Order> orderList;
 }
