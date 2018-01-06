@@ -8,6 +8,5 @@ import java.util.List;
 public interface PartRepository extends JpaRepository<Part,Long> {
 
     List<Part> findByName(String name);
-    Part findById(Long id);
     Part findByCode(Long code);
 }

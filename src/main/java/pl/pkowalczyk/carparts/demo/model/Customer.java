@@ -1,4 +1,5 @@
 package pl.pkowalczyk.carparts.demo.model;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -21,5 +22,6 @@ public class Customer {
     @Column(name = "last_name", nullable = false)
     private String lastName;
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "customer")
+    @JsonBackReference
     private List<Order> orderList;
 }
