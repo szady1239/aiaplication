@@ -18,4 +18,14 @@ public class PartServiceImpl implements PartService {
 
         return partRepository.findByName(name);
     }
+
+    @Override
+    public Part getPartById(Long id) {
+        return partRepository.findOne(id);
+    }
+
+    @Override
+    public Part getPartByCode(Long code) {
+        return partRepository.findByCode(code);
+    }
 }

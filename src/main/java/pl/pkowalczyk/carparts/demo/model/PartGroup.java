@@ -1,5 +1,4 @@
 package pl.pkowalczyk.carparts.demo.model;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,18 +9,15 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor
 @Entity
-@Table(name = "part")
-public class Part {
+@Table(name = "part_group")
+public class PartGroup {
     @Id
-    @Column(name = "part_id")
+    @Column(name = "part_group_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "name", nullable = false)
     private String name;
-    @Column(name = "code")
-    private Long code;
     @ManyToOne
-    @JoinColumn(name = "part_group_id")
-    private PartGroup partGroup;
-
+    @JoinColumn(name = "car_id")
+    private Car car;
 }

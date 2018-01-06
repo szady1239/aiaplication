@@ -15,11 +15,25 @@ public class PartControler {
     @Autowired
     private PartService partService;
 
-    @GetMapping("/partList/{name}")
+    @GetMapping("/findPartByName/{name}")
     public List<Part> getPartsByNameControler(@PathVariable(value = "name") String name) {
 
 
         return partService.getPartsByName(name);
+    }
+
+    @GetMapping("/findPartByCode/{code}")
+    public Part getPartByCodeContoler(@PathVariable(value = "code") Long code) {
+
+
+        return partService.getPartByCode(code);
+    }
+
+    @GetMapping("/findPartById/{id}")
+    public Part getPartByIdContoler(@PathVariable(value = "id") Long id) {
+
+
+        return partService.getPartById(id);
     }
 
 
