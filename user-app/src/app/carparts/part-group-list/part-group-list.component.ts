@@ -11,9 +11,12 @@ import {PartGroup} from '../PartGroup';
 })
 export class PartGroupListComponent implements OnInit {
   private partGroups: PartGroup[];
+
   constructor(private router: Router,private partGroupService: RestService) { }
 
   ngOnInit() {
+  	this.partGroupService.getPartGroups;
+  	
   	//this.getPartGroupByCarId(number);
   }
 

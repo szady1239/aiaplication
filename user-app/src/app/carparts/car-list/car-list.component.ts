@@ -33,8 +33,7 @@ export class CarListComponent implements OnInit {
 
   chosePartGroup(id: number)
   {
-    this.carService.getPartGroups(id).subscribe();
-    location.reload;
+    this.router.navigate(['/carparts/partsgroup', id]);
   }
 
 }
