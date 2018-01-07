@@ -36,5 +36,12 @@ public class PartControler {
         return partService.getPartById(id);
     }
 
+    @GetMapping("/getPartByPartGroupId/{partGroupId}")
+    public List<Part> getPartByPartGroupId(@PathVariable(value = "partGroupId") Long id) {
+
+
+        return partService.getPartsByPartGroupId(id);
+    }
+
 
 }

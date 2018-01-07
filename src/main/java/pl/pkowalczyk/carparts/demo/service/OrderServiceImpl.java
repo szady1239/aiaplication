@@ -30,11 +30,6 @@ public class OrderServiceImpl implements OrderService{
     @Override
     public Order orderSave(Long customerId) {
         Customer customer = customerService.getCustomerById(customerId);
-//        Long id =1L;
-//        Customer customer = customerRepository.findOne(id);
-//        Customer customer = new Customer();
-//        customer.setFirstName("Pafko");
-//        customer.setLastName("Kowalczyk");
         Order order = new Order();
         order.setCustomer(customer);
         return orderRepository.save(order);

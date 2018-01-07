@@ -9,4 +9,5 @@ public interface PartRepository extends JpaRepository<Part,Long> {
 
     List<Part> findByName(String name);
     Part findByCode(Long code);
+    List<Part> findByPartGroupId(Long id);
 }
