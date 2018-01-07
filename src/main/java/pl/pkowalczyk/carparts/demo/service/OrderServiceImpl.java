@@ -24,6 +24,7 @@ public class OrderServiceImpl implements OrderService{
     @Override
     public Order orderSave(Long customerId) {
         Customer customer = customerService.getCustomerById(customerId);
+        System.out.println(customer.toString());
         Order order = new Order();
         order.setCustomer(customer);
         return orderRepository.save(order);

@@ -3,6 +3,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.List;
 @Table(name = "customer")
 public class Customer {
     @Id
-    @Column(name = "customer_id")
+    //@Column(name = "customer_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "first_name", nullable = false)
@@ -24,4 +25,14 @@ public class Customer {
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "customer")
     @JsonBackReference
     private List<Order> orderList;
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", orderList=" + orderList +
+                '}';
+    }
 }
