@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import { Car } from '../Car';
+import {PartGroup} from '../PartGroup';
 import { RestService} from '../rest.service';
 @Component({
   selector: 'app-car-list',
@@ -16,6 +17,7 @@ export class CarListComponent implements OnInit {
   constructor(private router: Router, private carService: RestService) { }
 
   ngOnInit() {
+    this.getAllCars();
   	
   }
 
@@ -27,6 +29,12 @@ export class CarListComponent implements OnInit {
   	err =>{console.log(err);
   	}
   	);
+  }
+
+  chosePartGroup(id: number)
+  {
+    this.carService.getPartGroups(id).subscribe();
+    location.reload;
   }
 
 }

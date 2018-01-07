@@ -13,7 +13,10 @@
     <tr *ngFor="let c of cars">
       <th scope="row">{{c.id}}</th>
       <td>{{c.mark}}</td>
-      <td>{{c.model}}</td>r
+      <td>{{c.model}}</td>
+      <td>
+        <button type="button" class="btn btn-success" (click)="chosePartGroup(c.id)">Grupa części</button>
+      </td>
     </tr>
     </tbody>
   </table>
