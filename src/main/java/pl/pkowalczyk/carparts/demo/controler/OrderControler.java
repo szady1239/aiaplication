@@ -8,6 +8,7 @@ package pl.pkowalczyk.carparts.demo.controler;
         import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class OrderControler {
     @Autowired
     OrderService orderService;

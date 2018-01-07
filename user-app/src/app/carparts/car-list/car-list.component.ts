@@ -12,24 +12,21 @@ import { RestService} from '../rest.service';
 export class CarListComponent implements OnInit {
 
 	private cars: Car[];
-	carForm: FormGroup;
-	nextStep: boolean;
-
 
   constructor(private router: Router, private carService: RestService) { }
 
   ngOnInit() {
-  	this.nextStep = false;
-  	this.carForm = new FormGroup({
-  		code: new FormControl('',Validators.required),
-  		name: new FormControl('',Validators.required)
-  	});
+  	
   }
 
-  onSubmit(){
-  	if(this.carForm.valid){
-  		let
+  getAllCars(){
+  	this.carService.getCars().subscribe(
+  	c => {
+  		this.cars = c;
+  	},
+  	err =>{console.log(err);
   	}
+  	);
   }
 
 }

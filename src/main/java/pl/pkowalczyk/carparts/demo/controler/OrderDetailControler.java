@@ -8,6 +8,7 @@ import pl.pkowalczyk.carparts.demo.service.OrderDetailService;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class OrderDetailControler {
     @Autowired
     OrderDetailService orderDetailService;
