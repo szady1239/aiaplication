@@ -1,21 +1,20 @@
-<section class="main">
+s<section class="main">
 
   <table class="table">
     <thead>
     <tr>
       <th>#</th>
       <th>Name</th>
-      <th>Car</th>
       <th></th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let pg of partgroup">
-      <th scope="row">{{c.id}}</th>
-      <td>{{c.name}}</td>
-      <td>{{c.car}}</td>
+    <tr *ngFor="let pg of partGroups">
+      <th scope="row">{{pg.id}}</th>
+      <td>{{pg.name}}</td>
+      
       <td>
-        <button type="button" class="btn btn-success" (click)="chosePartGroup(c.id)">Części</button>
+        <button type="button" class="btn btn-success" (click)="choseParts(pg.id)">Części</button>
       </td>
     </tr>
     </tbody>

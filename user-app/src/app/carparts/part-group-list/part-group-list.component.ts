@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {RestService} from "../rest.service";
 import {PartGroup} from '../PartGroup';
@@ -11,13 +11,17 @@ import {PartGroup} from '../PartGroup';
 })
 export class PartGroupListComponent implements OnInit {
   private partGroups: PartGroup[];
+  private temp: any;
+  private id: number;
 
-  constructor(private router: Router,private partGroupService: RestService) { }
+  constructor(private router: Router,private partGroupService: RestService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-  	this.partGroupService.getPartGroups;
-  	
-  	//this.getPartGroupByCarId(number);
+  	this.temp = this.route.params.subscribe(params => {
+      this.id = params['id'];
+    });
+
+  	this.getPartGroupByCarId(this.id);
   }
 
   getPartGroupByCarId(id: number){
@@ -28,6 +32,8 @@ export class PartGroupListComponent implements OnInit {
   	err =>{console.log(err);
   	}
   	);
-
+  }
+  choseParts(id: number){
+    this.router.navigate(['carparts/parts', id]);
   }
 }

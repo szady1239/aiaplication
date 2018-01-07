@@ -8,7 +8,7 @@ import { OrderCartComponent} from './order-cart/order-cart.component';
 const routes: Routes = [
 	{path: 'carparts/cars', component: CarListComponent},
 	{path: 'carparts/partsgroup/:id', component: PartGroupListComponent},
-	{path: 'carparts/parts', component:PartsComponent},
+	{path: 'carparts/parts/:id', component:PartsComponent},
 	{path: 'carparts/ordercart', component: OrderCartComponent}
 
 
