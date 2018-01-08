@@ -21,7 +21,6 @@ export class RestService {
 	private apiUrlSaveOrderDetail = 'http://localhost:8080/saveOrderDetail';
 	private apiUrlFindPartByName = 'http://localhost:8080/findPartByName/';
 	private apiUrlFindPartByCode = 'http://localhost:8080/findPartByCode/';
-	//private apiUrlFindPartById = 'http://localhost:8080/findPartById/';
 	private apiUrlFindPartGroupByCar = 'http://localhost:8080/findPartGroupByCar/';
 	private apiUrlFindPartByGroupId = 'http://localhost:8080//getPartByPartGroupId/';
 
@@ -46,13 +45,13 @@ export class RestService {
   	.catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 
-  getPartByCode(code: number):Observable<Part>{
+  getPartByCode(code: number):Observable<Part[]>{
   	return this.http.get(this.apiUrlFindPartByCode+code)
   	.map((res: Response) => res.json())
   	.catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 
-  getPartByName(name: string):Observable<Part>{
+  getPartByName(name: string):Observable<Part[]>{
   	return this.http.get(this.apiUrlFindPartByName+name)
   	.map((res: Response) => res.json())
   	.catch((error: any) => Observable.throw(error.json().error || 'Server error'));

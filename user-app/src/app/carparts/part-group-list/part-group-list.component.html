@@ -1,4 +1,41 @@
-s<section class="main">
+ <p><div class="container">
+  <div class="row">
+    <div class="col">
+      <section>
+          <form novalidate [formGroup]="searchByCodeForm" (ngSubmit)="onSubmit()">
+          <fieldset>
+            <div class="form-group">
+              <label>Code: </label>
+              <input type="number"
+                     class="form-control"
+                     formControlName="code">
+            </div>
+          </fieldset>
+          <button type="submit" class="btn btn-primary"  [disabled]="!searchByCodeForm.valid" >Search part by code</button>
+         <!-- <pre>{{searchByCodeForm.value | json}}</pre> -->
+        </form>
+
+</section>
+
+ <p><div class="container">
+  <div class="row">
+    <div class="col">
+      <section>
+          <form novalidate [formGroup]="searchByName" (ngSubmit)="onSubmit()">
+          <fieldset>
+            <div class="form-group">
+              <label>Name: </label>
+              <input type="string"
+                     class="form-control"
+                     formControlName="name">
+            </div>
+          </fieldset>
+          <button type="submit" class="btn btn-primary"  [disabled]="!searchByNameForm.valid" >Search part by name</button>
+         <!-- <pre>{{searchByNameForm.value | json}}</pre> -->
+        </form>
+
+</section>
+<section class="main">
 
   <table class="table">
     <thead>

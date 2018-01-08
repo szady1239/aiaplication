@@ -25,7 +25,7 @@ public class PartControler {
     }
 
     @GetMapping("/findPartByCode/{code}")
-    public Part getPartByCodeContoler(@PathVariable(value = "code") Long code) {
+    public List<Part> getPartByCodeContoler(@PathVariable(value = "code") Long code) {
 
 
         return partService.getPartByCode(code);

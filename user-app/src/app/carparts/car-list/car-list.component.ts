@@ -13,12 +13,30 @@ import { RestService} from '../rest.service';
 export class CarListComponent implements OnInit {
 
 	private cars: Car[];
-
+  searchByCodeForm: FormGroup;
+  searchByNameForm: FormGroup;
   constructor(private router: Router, private carService: RestService) { }
 
   ngOnInit() {
+    this.searchByCodeForm = new FormGroup({
+      code: new FormControl('',Validators.required)
+    });
+    this.searchByNameForm = new FormGroup({
+      name: new FormControl('',Validators.required)
+    });
     this.getAllCars();
   	
+  }
+
+  onSubmit(){
+    if(this.searchByCodeForm.valid){
+      let code = this.searchByCodeForm.controls['code'].value;
+      this.searchByCode(code);
+    }
+    else if(this.searchByNameForm.valid){
+      let name = this.searchByNameForm.controls['name'].value;
+      this.searchByName(name);
+    }
   }
 
   getAllCars(){
@@ -34,6 +52,16 @@ export class CarListComponent implements OnInit {
   chosePartGroup(id: number)
   {
     this.router.navigate(['/carparts/partsgroup', id]);
+  }
+
+  searchByCode(code: number)
+  {
+    this.router.navigate(['/carparts/partbycode', code]);
+  }
+
+  searchByName(name: string)
+  {
+    this.router.navigate(['/carparts/partbyname', name]);
   }
 
 }

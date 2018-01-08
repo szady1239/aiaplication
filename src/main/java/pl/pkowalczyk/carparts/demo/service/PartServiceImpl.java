@@ -31,7 +31,7 @@ public class PartServiceImpl implements PartService {
     }
 
     @Override
-    public Part getPartByCode(Long code) {
+    public List<Part> getPartByCode(Long code) {
         return partRepository.findByCode(code);
     }
 
