@@ -45,7 +45,9 @@ export class PartsComponent implements OnInit {
       let code = this.searchByCodeForm.controls['code'].value;
       this.searchByCode(code);
     }
-    else if(this.searchByNameForm.valid){
+  }
+  onSubmit2(){
+    if(this.searchByNameForm.valid){
       let name = this.searchByNameForm.controls['name'].value;
       this.searchByName(name);
     }
